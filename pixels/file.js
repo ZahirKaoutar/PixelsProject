@@ -46,7 +46,7 @@ async function getcard(){
 
    Cards.innerHTML += res1.map(game => `
       <div class='card    m-auto  mt-5 rounded-3xl  w-[300px] h-[300px] '>
-        <div   data-userid="${game.id}" class="card-img  ">
+        <div   data-gameid="${game.id}" class="card-img  ">
           <img  class="rounded-t-2xl "src="${game.background_image}">
         </div>
         <div class="card-text pl-2  bg-red-600 flex flex-col justify-between  text-white rounded-b-lg h-[30%]">
@@ -67,6 +67,21 @@ async function getcard(){
         </div>
       </div>
    `).join(""); 
+    const cardss=document.querySelectorAll(".card-img ")
+ cardss.forEach(c => {
+        c.addEventListener('click',(e)=>{
+        const gameid =  e.currentTarget.dataset.gameid;
+        
+        window.location.href = `detaille.html?game.id=${gameid}`;  })
+   });
+  
 }
 
+ 
+
 getcard();
+
+
+
+
+
