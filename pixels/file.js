@@ -1,6 +1,13 @@
  
 const filterselect= document.querySelector('.filter') 
  const Cards=document.querySelector('.cards')
+const platformIcons = {
+  pc: "IMG/pc.png",
+  playstation: "IMG/playstation.png",
+  xbox: "IMG/xbox.png",
+  mac: "IMG/mac.png",
+  linux: "IMG/linux.png"
+};
  async function  getSelect()
  {
     const datagame=await fetch("https://debuggers-games-api.duckdns.org/api/games?page=1&limit=20")
@@ -38,22 +45,28 @@ async function getcard(){
     const res1=reponse.results
 
    Cards.innerHTML += res1.map(game => `
-      <div class='card  m-auto  mt-5 rounded-3xl w-[300px]'>
-        <div data-userid="${game.id}" class="card-img ">
-          <img  class="rounded-t-2xl"src="${game.background_image}">
+      <div class='card    m-auto  mt-5 rounded-3xl  w-[300px] h-[300px] '>
+        <div   data-userid="${game.id}" class="card-img  ">
+          <img  class="rounded-t-2xl "src="${game.background_image}">
         </div>
-        <div class="card-text bg-black text-white rounded-b-lg h-12">
+        <div class="card-text pl-2  bg-red-600 flex flex-col justify-between  text-white rounded-b-lg h-[30%]">
 
 
-            <div class="img-platform">
-                <img src=""><img src=""><img src="">
+            <div class="img-platform flex  ">
+            
+               ${game.parent_platforms.map((p)=> {
+                 const slug = p.platform.slug; 
+                const icon = platformIcons[slug];
+                return icon ? `<img src="${icon}" alt="${slug}" class="w-[20px] inline-block ml-2px  mx-1">` : "";
+               }).join(" ")}
             </div>
-            <div class="namecoeur  flex justify-between  gap-4">
-                 <h2 class="name text-white font-bold  ">${game.name}</h2>
-                <img  class="w-[20px]"   src="IMG/comme.png">
+            <div class="namecoeur mb-[10px] flex justify-between  gap-4">
+                 <h2 class="name text-white font-bold truncate ">${game.name}</h2>
+                <img  class="w-[20px] mr-5"   src="IMG/comme.png">
             </div>
         </div>
       </div>
    `).join(""); 
 }
+
 getcard();
