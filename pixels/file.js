@@ -1,7 +1,6 @@
 const filterselect= document.querySelector('.filter') 
  const Cards=document.querySelector('.cards')
  const searchInput = document.querySelector("input[type='search']");
-
 const platformIcons = {
   pc: "IMG/pc.png",
   playstation: "IMG/playstation.png",
@@ -70,7 +69,7 @@ async function getcard(){
 
 
 
-        searchInput.addEventListener("input", e => {
+  searchInput.addEventListener("input", e => {
   const value = e.target.value.toLowerCase();
   const cards = document.querySelectorAll(".card");
 
