@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du jeu</title>
+       <link href="../src/output.css" rel="stylesheet" />
+
+    
+</head>
+<body style="background-image: url('./IMG/bg.jpg')" class="min-h-screen bg-cover bg-center bg-no-repeat">
+    
+    <div id="game-details"></div>
+    
+    <script>
+        async function showGame() {
+            const params = new URLSearchParams(window.location.search);
+            const gameid = params.get('gameid');
+
+            if (!gameid) {
+                document.getElementById('game-details').innerHTML = "<div>Jeu non trouvé</div>";
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://debuggers-games-api.duckdns.org/api/games/${gameid}`);
+                const game = await response.json();
+
+                document.getElementById('game-details').innerHTML = `<h1 class="text-white text-2xl font-black text-center  mt-10">  ${game.name}</h1>
+                 
+  
+                    <div class="flex  justify-center">
+                            <img src="${game.background_image}" class="rounded-md   w-[90%]" alt="${game.name}">
+                    </div>
+                    
+                    <div class="max-h-80 overflow-y-auto pr-2 custom-scrollbar  mt-9 bg-white bg-opacity-50 rounded p-4 "">
+                        <div class="flex    items-center gap-2">
+                             <img src="${game.background_image}" class="rounded-xl   w-[50%]" alt="${game.name}">
+                             <h4 class="text-red-600 text-lg font-bold" >${game.name}</h4>
+                            
+                        </div>
+                        
+                        <p class=" text-bold">
+                            ${game.description || 'Description non disponible'}
+                        </p>
+                    </div>
+                    <div class="w-48 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg"></div>
+                    <div>Sortie: ${game.released}</div>
+                    <div>Note: ${game.rating}/5</div>
+                `;
+            } catch (error) {
+                document.getElementById('game-details').innerHTML = "<div>Erreur lors du chargement du jeu</div>";
+            }
+        }
+
+        showGame();
+    </script>
+</body>
+</html>

@@ -66,7 +66,7 @@ async function getcard(){
             c.addEventListener('click',(e)=>{
             const gameid =  e.currentTarget.dataset.gameid;
             
-            window.location.href = `detaille.html?game.id=${gameid}`;  
+            window.location.href = `detaille.html?gameid=${gameid}`;  
             })
         });
     } catch (error) {
