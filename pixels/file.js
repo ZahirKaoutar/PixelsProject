@@ -1,5 +1,6 @@
 const filterselect= document.querySelector('.filter') 
  const Cards=document.querySelector('.cards')
+ const searchInput = document.querySelector("input[type='search']");
 const platformIcons = {
   pc: "IMG/pc.png",
   playstation: "IMG/playstation.png",
@@ -66,12 +67,24 @@ async function getcard(){
             c.addEventListener('click',(e)=>{
             const gameid =  e.currentTarget.dataset.gameid;
             
-            window.location.href = `detaille.html?gameid=${gameid}`;  
+            window.location.href = `detaille.html?game.id=${gameid}`;  
             })
         });
     } catch (error) {
         console.error('Erreur dans getcard:', error);
     }
 }
+ 
 
 getcard();
+
+
+
+
+
+
+
+
+
+
+

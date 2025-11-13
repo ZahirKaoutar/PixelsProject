@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket League</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-white relative min-h-screen" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="max-w-md mx-auto min-h-screen flex flex-col relative z-10">
+        <!-- Header -->
+        <header class="flex items-center justify-between p-4 border-b border-gray-800">
+            <div class="flex items-center gap-3 flex-1">
+                <div class="w-10 h-10 bg-red-600 rounded flex items-center justify-center text-xl font-bold">
+                    RL
+                </div>
+                <div class="flex-1 bg-gray-800 rounded-full px-4 py-2">
+                    <input type="text" placeholder="Rechercher..." class="bg-transparent outline-none w-full text-sm">
+                </div>
+            </div>
+            <button class="ml-3 text-sm">Favorie</button>
+        </header>
+
+        <!-- Title -->
+        <div class="px-4 pt-6 pb-3">
+            <h1 class="text-3xl font-bold">Rocket leagues</h1>
+        </div>
+
+        <!-- Main Image -->
+        <div class="px-4 mb-4">
+            <div class="relative rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=400&fit=crop" 
+                     alt="Rocket League" 
+                     class="w-full h-48 object-cover">
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="flex-1 bg-gray-900 rounded-t-3xl p-6">
+            <!-- Thumbnail and Title -->
+            <div class="flex gap-4 mb-4">
+                <div class="w-24 h-16 rounded overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=200&h=150&fit=crop" 
+                         alt="Thumbnail" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-red-500 font-bold text-xl mb-2">Rocket League</h2>
+                </div>
+            </div>
+
+            <!-- Description Card -->
+            <div class="mb-6">
+                <div class="bg-gradient-to-br from-pink-100 to-blue-100 rounded-2xl p-6 shadow-lg">
+                    <p class="text-gray-800 text-sm leading-relaxed font-medium">
+                        Un jeu si fascinant composé avec des voitures folles et si intense tu peux 
+                        manquer de salive en jouant tellement tu seras occupé dans le jeu dedans c'est 
+                        vraiment un jeu qui fait remonter l'adrénaline et aussi on y joue en ligne avec 
+                        d'autres avec des amis vraiment à tester ce jeu génial. 5 modes de jeu, Un total de 
+                        plus bien mécanismes de jeu, faciles à comprendre mais difficile à maîtriser. 
+                        A toussures différent événement avec leur boutiques pour obtenir les voitures.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Form Fields -->
+            <div class="space-y-4 mb-6">
+                <div>
+                    <label class="block text-sm mb-2">Genre</label>
+                    <input type="text" 
+                           class="w-full bg-white text-black rounded px-4 py-2 outline-none" 
+                           value="">
+                </div>
+
+                <div>
+                    <label class="block text-sm mb-2">Note</label>
+                    <input type="text" 
+                           class="w-full bg-white text-black rounded px-4 py-2 outline-none" 
+                           value="">
+                </div>
+
+                <div>
+                    <label class="block text-sm mb-2">Editeur (Studio)</label>
+                    <input type="text" 
+                           class="w-full bg-white text-black rounded px-4 py-2 outline-none" 
+                           value="">
+                </div>
+
+                <div>
+                    <label class="block text-sm mb-2">Date</label>
+                    <input type="text" 
+                           class="w-full bg-white text-black rounded px-4 py-2 outline-none" 
+                           value="Jean 05 2016">
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bg-black border-t border-gray-800 py-4 px-6">
+            <div class="flex justify-between items-center max-w-md mx-auto">
+                <button class="flex flex-col items-center gap-1 text-gray-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="2"/>
+                    </svg>
+                    <span class="text-xs">Logo</span>
+                </button>
+                
+                <button class="flex flex-col items-center gap-1 text-gray-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span class="text-xs">Pages</span>
+                </button>
+                
+                <button class="flex flex-col items-center gap-1 text-red-500">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span class="text-xs">Accueil</span>
+                </button>
+                
+                <button class="flex flex-col items-center gap-1 text-gray-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    <span class="text-xs">Favoris</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
