@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails du jeu</title>
-       <link href="../src/output.css" rel="stylesheet" />
-
-    
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body style="background-image: url('./IMG/bg.jpg')" class="min-h-screen bg-cover bg-center bg-no-repeat">
-    
-    <div id="game-details"></div>
-    <footer class="relative flex justify-between items-center mt-10 bottom-0 left-0 w-full bg-opacity-90 text-white py-6 px-8 z-50">
-
-        <div><img  src="IMG/logo (1).png"></div>
-        <ul class="flex flex-col items-center space-y-6 mt-10">
-                <li><a href="home.html" class="hover:text-blue-300 transition text-lg">Accueil</a></li>
-                <li><a href="favoris.html" class="hover:text-blue-300 transition text-xl">Favoris</a></li>
-        </ul>
-         <ul class="flex  items-center space-x-6 mt-10">
-                <li><a href="#" class="hover:text-blue-300 transition text-xl"><img src="IMG/image-removebg-preview 1 (1).png"></a></li>
-                <li><a href="#" class="hover:text-blue-300 transition text-xl"><img src="IMG/image-removebg-preview (1) 1.png"></a></li>
-        </ul>
+<body    class="text-white relative min-h-screen" style="background-image: url('IMG/bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;" class="bg-black text-white">
+    <div class="max-w-md mx-auto min-h-screen flex flex-col">
         
-    </footer>
-    
-   
+       
+
+        <!-- Game Details Container -->
+        <div id="game-details" class="flex-1">
+            <!-- Loading state -->
+            <div class="flex items-center justify-center h-64">
+                <div class="text-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto mb-4"></div>
+                    <p class="text-gray-300">Chargement...</p>
+                </div>
+            </div>
+        </div>
+
+       
+        <footer class="bg-black py-6 px-8 mt-auto">
+            <div class="flex justify-between items-end">
+                <!-- Logo -->
+                <div class="flex flex-col items-center">
+                    <img src="IMG/logo (1).png" alt="Logo" class="w-12 h-12 mb-2" onerror="this.style.display='none'">
+                    <span class="text-xs">Logo</span>
+                </div>
+
+                <!-- Pages & Accueil -->
+                <div class="flex flex-col items-center space-y-4">
+                    <a href="home.html" class="text-sm hover:text-red-500 transition">Acceuil</a>
+                    <a href="favoris.html" class="text-sm hover:text-red-500 transition">Favoris</a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex flex-col items-center space-y-2">
+                    <a href="#" class="text-red-500  rounded p-2">
+                        <img src="IMG/image-removebg-preview (1) 1.png" alt="Upload" class="w-6 h-6" onerror="this.innerHTML='📤'">
+                    </a>
+                    <a href="favoris.html" class="text-red-500  rounded p-2">
+                        <img src="IMG/image-removebg-preview 1 (1).png" alt="Instagram" class="w-6 h-6" onerror="this.innerHTML='📷'">
+                    </a>
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
     
     <script>
         async function showGame() {
             const params = new URLSearchParams(window.location.search);
-            const gameid = params.get('gameid');
+            const gameid = params.get('game.id');
 
             if (!gameid) {
-                document.getElementById('game-details').innerHTML = "<div>Jeu non trouvé</div>";
+                document.getElementById('game-details').innerHTML = `
+                    <div class="flex items-center justify-center h-64">
+                        <div class="text-center">
+                            <p class="text-red-500 text-xl mb-2">⚠️ Jeu non trouvé</p>
+                            <a href="home.html" class="text-blue-400 hover:text-blue-300">Retour à l'accueil</a>
+                        </div>
+                    </div>
+                `;
                 return;
             }
 
@@ -41,30 +72,85 @@
                 const response = await fetch(`https://debuggers-games-api.duckdns.org/api/games/${gameid}`);
                 const game = await response.json();
 
-                document.getElementById('game-details').innerHTML = `<h1 class="text-white text-2xl font-black text-center  mt-10">  ${game.name}</h1>
-                 
-  
-                    <div class="flex  justify-center">
-                            <img src="${game.background_image}" class="rounded-md   w-[90%]" alt="${game.name}">
+                document.getElementById('game-details').innerHTML = `
+                    <!-- Title -->
+                    <div class="px-4 pt-4 pb-3">
+                        <h1 class="text-2xl font-bold">${game.name}</h1>
                     </div>
-                    
-                    <div class="max-h-80 overflow-y-auto pr-2 custom-scrollbar  mt-9 bg-white bg-opacity-50 p-4 "">
-                        <div class="flex    items-center gap-2">
-                             <img src="${game.background_image}" class="rounded-xl   w-[50%]" alt="${game.name}">
-                             <h4 class="text-red-600 text-lg font-bold" >${game.name}</h4>
-                            
+
+                    <!-- Main Image -->
+                    <div class="px-4 mb-4">
+                        <div class="relative rounded-lg overflow-hidden">
+                            <img src="${game.background_image}" 
+                                 alt="${game.name}" 
+                                 class="w-full h-48 object-cover">
                         </div>
-                        
-                        <p class=" text-bold txt-sm">
-                            ${game.description || 'Description non disponible'}
-                        </p>
                     </div>
-                    <div class="w-[90%] h-10 m-auto mt-6 bg-gray-400  "> <span class="font-bold">Genre</span> : ${game.genres.map(e=>`<span class="text-sm  ">${e.name}</span>`)}</div>
-                    <div class="w-[90%] h-10  m-auto mt-6 bg-gray-400 "> <span class="font-bold">Note</span>: ${game.rating} </div>
-                    <div class="w-[90%] h-10  m-auto mt-6 bg-gray-400 "> <span class="font-bold">Editeur/studio</span>:  ${game.developers.map(e=>`<span class="text-sm">${e.name}</span>`) }</div>
-                    <div class="w-[90%] h-10 m-auto mt-6 bg-gray-400  "> <span class="font-bold">Date apparaitre</span> :${game.released} </div>`
+
+                    
+                    <div class="mx-4 bg-black  rounded-2xl p-4 mb-4">
+                        
+                        <div class="flex gap-3 mb-3">
+                            <div class="w-20 h-14 rounded overflow-hidden flex-shrink-0">
+                                <img src="${game.background_image}" alt="${game.name}" class="w-full h-full object-cover">
+                                     
+                                     
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-red-500   m-auto font-bold text-base">${game.name}</h2>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-4 max-h-32 overflow-y-auto">
+                            <p class="text-white text-xs leading-relaxed">
+                                ${ game.description || 'Description non disponible'}
+                            </p>
+                        </div>
+
+                        <!-- Form Fields -->
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-xs  mb-1">Genre</label>
+                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
+                                    ${game.genres.map(e => e.name).join(', ')}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs  mb-1 text-white">Note</label>
+                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
+                                    ${game.rating} 
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs  mb-1 text-white">Editeur (Studio)</label>
+                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
+                                    ${game.developers.map(e => e.name).join(', ')}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs  mb-1 text-white">Date</label>
+                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
+                                    ${game.released || 'Date non disponible'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
             } catch (error) {
-                document.getElementById('game-details').innerHTML = "<div>Erreur lors du chargement du jeu</div>";
+                console.error('Erreur:', error);
+                document.getElementById('game-details').innerHTML = `
+                    <div class="flex items-center justify-center h-64">
+                        <div class="text-center bg-red-900/50 backdrop-blur-md p-6 rounded-lg">
+                            <p class="text-red-300 text-xl mb-2">❌ Erreur lors du chargement</p>
+                            <p class="text-gray-300 text-sm mb-4">Impossible de récupérer les détails du jeu</p>
+                            <a href="home.html" class="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition">Retour à l'accueil</a>
+                        </div>
+                    </div>
+                `;
             }
         }
 

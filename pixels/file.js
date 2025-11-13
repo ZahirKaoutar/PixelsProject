@@ -1,5 +1,7 @@
 const filterselect= document.querySelector('.filter') 
  const Cards=document.querySelector('.cards')
+ const searchInput = document.querySelector("input[type='search']");
+
 const platformIcons = {
   pc: "IMG/pc.png",
   playstation: "IMG/playstation.png",
@@ -61,17 +63,52 @@ async function getcard(){
             </div>
         `).join(""); 
         
-        const cardss=document.querySelectorAll(".card-img ")
-        cardss.forEach(c => {
-            c.addEventListener('click',(e)=>{
-            const gameid =  e.currentTarget.dataset.gameid;
-            
-            window.location.href = `detaille.html?game.id=${gameid}`;  
-            })
-        });
+
+
+
+
+
+
+
+        searchInput.addEventListener("input", e => {
+  const value = e.target.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const name = card.querySelector(".name").textContent.toLowerCase();
+    
+
+    if (name.includes(value) ) {
+      card.style.display = "block"; // afficher
+    } else {
+      card.style.display = "none"; // cacher
+    }
+  });
+});
+const cardss=document.querySelectorAll(".card-img ")
+ cardss.forEach(c => {
+        c.addEventListener('click',(e)=>{
+        const gameid =  e.currentTarget.dataset.gameid;
+        
+        window.location.href = `detaille.html?game.id=${gameid}`;  })})
+
+        
+
     } catch (error) {
         console.error('Erreur dans getcard:', error);
     }
 }
+ 
 
 getcard();
+
+
+
+
+
+
+
+
+
+
+
