@@ -6,15 +6,13 @@
     <title>Détails du jeu</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body    class="text-white relative min-h-screen" style="background-image: url('IMG/bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;" class="bg-black text-white">
-    <div class="max-w-md mx-auto min-h-screen flex flex-col">
+<body class="text-white relative min-h-screen" style="background-image: url('IMG/bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="max-w-md md:max-w-3xl lg:max-w-6xl mx-auto min-h-screen flex flex-col">
         
-       
-
         <!-- Game Details Container -->
         <div id="game-details" class="flex-1">
             <!-- Loading state -->
-            <div class="flex items-center justify-center h-64">
+            <div class="flex items-center justify-center h-64"></div>
                 <div class="text-center">
                     <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto mb-4"></div>
                     <p class="text-gray-300">Chargement...</p>
@@ -24,28 +22,27 @@
 
        
         <footer class="bg-black py-6 px-8 mt-auto">
-            <div class="flex justify-between items-end">
+            <div class="flex justify-between items-end md:justify-around lg:max-w-4xl lg:mx-auto">
                
                 <div class="flex flex-col items-center">
-                    <img src="IMG/logo (1).png" alt="Logo" class="w-12 h-12 mb-2" onerror="this.style.display='none'">
-                    <span class="text-xs">Logo</span>
+                    <img src="IMG/logo (1).png" alt="Logo" class="w-12 h-12 md:w-16 md:h-16 mb-2" onerror="this.style.display='none'">
+                    <span class="text-xs md:text-sm">Logo</span>
                 </div>
 
                 
-                <div class="flex flex-col items-center space-y-4">
-                    <a href="home.html" class="text-sm hover:text-red-500 transition">Acceuil</a>
-                    <a href="favoris.html" class="text-sm hover:text-red-500 transition">Favoris</a>
+                <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-8">
+                    <a href="home.html" class="text-sm md:text-base hover:text-red-500 transition">Acceuil</a>
+                    <a href="favoris.html" class="text-sm md:text-base hover:text-red-500 transition">Favoris</a>
                 </div>
 
                 <!-- Social Icons -->
-                <div class="flex flex-col items-center space-y-2">
-                    <a href="#" class="text-red-500  rounded p-2">
-                        <img src="IMG/image-removebg-preview (1) 1.png" alt="Upload" class="w-6 h-6" onerror="this.innerHTML='📤'">
+                <div class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4">
+                    <a href="#" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition">
+                        <img src="IMG/image-removebg-preview (1) 1.png" alt="Upload" class="w-6 h-6 md:w-8 md:h-8" onerror="this.innerHTML='📤'">
                     </a>
-                    <a href="favoris.html" class="text-red-500  rounded p-2">
-                        <img src="IMG/image-removebg-preview 1 (1).png" alt="Instagram" class="w-6 h-6" onerror="this.innerHTML='📷'">
+                    <a href="favoris.html" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition">
+                        <img src="IMG/image-removebg-preview 1 (1).png" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8" onerror="this.innerHTML='📷'">
                     </a>
-                    
                 </div>
             </div>
         </footer>
@@ -60,7 +57,7 @@
                 document.getElementById('game-details').innerHTML = `
                     <div class="flex items-center justify-center h-64">
                         <div class="text-center">
-                            <p class="text-red-500 text-xl mb-2"> Jeu non trouvé</p>
+                            <p class="text-red-500 text-xl mb-2">Jeu non trouvé</p>
                             <a href="home.html" class="text-blue-400 hover:text-blue-300">Retour à l'accueil</a>
                         </div>
                     </div>
@@ -74,67 +71,68 @@
 
                 document.getElementById('game-details').innerHTML = `
                     <!-- Title -->
-                    <div class="px-4 pt-4 pb-3">
-                        <h1 class="text-2xl font-bold">${game.name}</h1>
+                    <div class="px-4 md:px-6 lg:px-8 pt-4 pb-3">
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl text-center mt-10 font-bold">${game.name}</h1>
                     </div>
 
-                    <!-- Main Image -->
-                    <div class="px-4 mb-4">
-                        <div class="relative rounded-lg overflow-hidden">
-                            <img src="${game.background_image}" 
-                                 alt="${game.name}" 
-                                 class="w-full h-48 object-cover">
-                        </div>
-                    </div>
-
-                    
-                    <div class="mx-4 bg-black  rounded-2xl p-4 mb-4">
-                        
-                        <div class="flex gap-3 mb-3">
-                            <div class="w-20 h-14 rounded overflow-hidden flex-shrink-0">
-                                <img src="${game.background_image}" alt="${game.name}" class="w-full h-full object-cover">
-                                     
-                                     
-                            </div>
-                            <div class="flex-1">
-                                <h2 class="text-red-500   m-auto font-bold text-base">${game.name}</h2>
+                    <!-- Main Content Grid -->
+                    <div class="px-4 md:px-6 lg:px-8 mb-4 mt-20 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
+                        <!-- Main Image -->
+                        <div class="mb-4 md:mb-0 ">
+                            <div class="relative rounded-lg overflow-hidden">
+                                <img src="${game.background_image}" 
+                                     alt="${game.name}" 
+                                     class="w-full h-48 md:h-[600px] w-[50px] lg:h-[600px] object-cover  w-[50px]">
                             </div>
                         </div>
 
-                        <!-- Description -->
-                        <div class="mb-4 max-h-32 overflow-y-auto">
-                            <p class="text-white text-xs leading-relaxed">
-                                ${ game.description || 'Description non disponible'}
-                            </p>
-                        </div>
-
-                        <!-- Form Fields -->
-                        <div class="space-y-3">
-                            <div>
-                                <label class="block text-xs  mb-1">Genre</label>
-                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
-                                    ${game.genres.map(e => e.name).join(', ')}
+                        <!-- Info Card -->
+                        <div class="bg-black rounded-2xl p-4 md:p-6">
+                            <!-- Game Header -->
+                            <div class="flex gap-3 mb-4">
+                                <div class="w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-20 rounded overflow-hidden flex-shrink-0">
+                                    <img src="${game.background_image}" alt="${game.name}" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h2 class="text-red-500 font-bold text-base md:text-lg lg:text-xl">${game.name}</h2>
                                 </div>
                             </div>
 
-                            <div>
-                                <label class="block text-xs  mb-1 text-white">Note</label>
-                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
-                                    ${game.rating} 
-                                </div>
+                            <!-- Description -->
+                            <div class="mb-4 max-h-32 md:max-h-40 lg:max-h-48 overflow-y-auto">
+                                <p class="text-white text-xs md:text-sm leading-relaxed">
+                                    ${game.description || 'Description non disponible'}
+                                </p>
                             </div>
 
-                            <div>
-                                <label class="block text-xs  mb-1 text-white">Editeur (Studio)</label>
-                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
-                                    ${game.developers.map(e => e.name).join(', ')}
+                            <!-- Form Fields -->
+                            <div class="space-y-3 md:space-y-4">
+                                <div>
+                                    <label class="block text-xs md:text-sm mb-1">Genre</label>
+                                    <div class="w-full bg-white rounded px-3 py-2 text-xs md:text-sm text-gray-800">
+                                        ${game.genres.map(e => e.name).join(', ')}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div>
-                                <label class="block text-xs  mb-1 text-white">Date</label>
-                                <div class="w-full bg-white rounded px-3 py-2 text-xs text-gray-800">
-                                    ${game.released || 'Date non disponible'}
+                                <div>
+                                    <label class="block text-xs md:text-sm mb-1 text-white">Note</label>
+                                    <div class="w-full bg-white rounded px-3 py-2 text-xs md:text-sm text-gray-800">
+                                        ${game.rating} 
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs md:text-sm mb-1 text-white">Editeur (Studio)</label>
+                                    <div class="w-full bg-white rounded px-3 py-2 text-xs md:text-sm text-gray-800">
+                                        ${game.developers.map(e => e.name).join(', ')}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs md:text-sm mb-1 text-white">Date</label>
+                                    <div class="w-full bg-white rounded px-3 py-2 text-xs md:text-sm text-gray-800">
+                                        ${game.released || 'Date non disponible'}
+                                    </div>
                                 </div>
                             </div>
                         </div>

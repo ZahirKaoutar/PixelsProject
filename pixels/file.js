@@ -21,12 +21,12 @@
 
 // async function getjeuxfilter({genre, plateforme,notes}){
 // let url1 = "https://example-api.com/games?";
-  
+
 //   // Ajouter les paramètres facultatifs si ils existent
 //   if (genre) url += `genre=${encodeURIComponent(genre)}&`;
 //   if (plateforme)  url += `type=${encodeURIComponent(plateforme)}&`;
 //    if (notes)  url += `type=${encodeURIComponent(notes)}&`;
-  
+
 //   // Supprimer le dernier & si nécessaire
 //   url = url.slice(0, -1);
 
@@ -41,7 +41,7 @@
 //     try {
 //         // const datagame=await fetch(url)
 //         // const reponse =await datagame.json()
-        
+
 //         const res1=data.results
 
 //         const allgenres = res1.flatMap(elem => elem.genres.map(g => g.name));
@@ -49,7 +49,7 @@
 
 //         const allplateformes = res1.flatMap(elem => elem.parent_platforms.map(platf => platf.platform.name));
 //         const palteformeUniques = [...new Set(allplateformes)];
-        
+
 //         filterselect.innerHTML+=`< id="genre"  class="text-white  bg-black   ml-4 text-center w-20 rounded-3xl border border-white-300 p-2">  <option disabled selected"> genre</option>${genresUniques.map(e=>`<option value=${e}>${e}</option>`)}</select>`
 //         filterselect.innerHTML+=`<select  id="plateforme" class="text-white bg-black  ml-4 text-center w-[90px] rounded-3xl border border-white-300 p-2">  <option disabled selected> note</option>${palteformeUniques.map(e=>`<option value=${e}>${e}</option>`)}</select>`
 //         filterselect.innerHTML+=`<select  id="note" class="text-white    bg-black ml-4 mr-3  text-center w-[110px] rounded-3xl border border-white-300 p-2">  <option disabled selected > plateforme</option>${palteformeUniques.map(e=>`<option value=${e}>${e}</option>`)}</select>`
@@ -58,7 +58,7 @@
 //         const genre = document.querySelector('#genre').value;
 //         const plateforme = document.querySelector('#plateforme').value;
 //         const notes = document.querySelector('#notes').value;
-       
+
 //         getpost({ genre,plateforme,notes});
 //     }) }catch (error) {
 //         console.error('Erreur dans getSelect:', error);
@@ -82,7 +82,7 @@
 
 
 //                 <div class="img-platform flex  ">
-                
+
 //                 ${game.parent_platforms.map((p)=> {
 //                     const slug = p.platform.slug; 
 //                     const icon = platformIcons[slug];
@@ -96,7 +96,7 @@
 //             </div>
 //             </div>
 //         `).join(""); 
-        
+
 
 
 
@@ -110,7 +110,7 @@
 
 //   cards.forEach(card => {
 //     const name = card.querySelector(".name").textContent.toLowerCase();
-    
+
 
 //     if (name.includes(value) ) {
 //       card.style.display = "block"; // afficher
@@ -123,16 +123,16 @@
 //  cardss.forEach(c => {
 //         c.addEventListener('click',(e)=>{
 //         const gameid =  e.currentTarget.dataset.gameid;
-        
+
 //         window.location.href = `detaille.html?game.id=${gameid}`;  })})
 
-        
+
 
 //     } catch (error) {
 //         console.error('Erreur dans getcard:', error);
 //     }
 // }
- 
+
 
 // getcard();
 
@@ -190,7 +190,7 @@ async function getjeuxfilter({ genre, plateforme, notes }) {
 
     // Appliquer les filtres
     if (genre) {
-      filteredGames = filteredGames.filter(game => 
+      filteredGames = filteredGames.filter(game =>
         game.genres.some(g => g.name === genre)
       );
     }
@@ -201,16 +201,16 @@ async function getjeuxfilter({ genre, plateforme, notes }) {
       );
     }
 
-    if (notes==="Croissant") {
+    if (notes === "Croissant") {
       // Supposons que vous voulez filtrer par rating
-      
+
       filteredGames.sort((a, b) => a.rating - b.rating);
-     
-    }else if(notes==="decroissant") {
+
+    } else if (notes === "decroissant") {
       filteredGames = filteredGames.sort((a, b) => b.rating - a.rating);
 
     }
-    
+
 
     return filteredGames;
   } catch (error) {
@@ -224,32 +224,32 @@ async function getSelect() {
     const allgenres = gamesData.flatMap(elem => elem.genres.map(g => g.name));
     const genresUniques = [...new Set(allgenres)];
 
-    const allplateformes = gamesData.flatMap(elem => 
+    const allplateformes = gamesData.flatMap(elem =>
       elem.parent_platforms.map(platf => platf.platform.name)
     );
     const plateformeUniques = [...new Set(allplateformes)];
 
-   
+
 
     filterselect.innerHTML = `
-      <select id="genre" class="text-white bg-black ml-4 text-center w-20 rounded-3xl border border-white-300 p-2">
-        <option value="" selected>Tous les genres</option>
+      <select id="genre" class="text-white bg-black ml-4 text-center w-20 rounded-3xl border border-white-300 p-2  md:w-[140px] lg:w-[200px] ">">
+        <option value="" selected> genres</option>
         ${genresUniques.map(e => `<option value="${e}">${e}</option>`).join('')}
       </select>
       
-      <select id="plateforme" class="text-white bg-black ml-4 text-center w-[110px] rounded-3xl border border-white-300 p-2">
-        <option value="" selected>Toutes plateformes</option>
+      <select id="plateforme" class="text-white bg-black ml-4 text-center w-[110px] rounded-3xl border border-white-300 p-2 lg:w-[200px] md:w-[140px]">
+        <option value="" selected> plateformes</option>
         ${plateformeUniques.map(e => `<option value="${e}">${e}</option>`).join('')}
       </select>
       
-      <select id="note" class="text-white bg-black ml-4 mr-3 text-center w-[90px] rounded-3xl border border-white-300 p-2">
-        <option value="" selected>Toutes notes</option>
-        <option value="Croissant" selected>Croissant</option>
-        <option value="decroissant" selected>Decroissant</option>
+      <select id="note" class="text-white bg-black ml-4 mr-3 text-center w-[90px] rounded-3xl border border-white-300 p-2 lg:w-[200px] md:w-[140px]">
+        <option value="" selected> notes</option>
+        <option value="Croissant" >Croissant</option>
+        <option value="decroissant" >Decroissant</option>
 
       </select>
       
-      <button id="filterBtn" class="bg-blue-500 text-white px-4 py-2 rounded-3xl ml-4">Filtrer</button>
+      <button id="filterBtn" class="border border-red-500 text-white px-4 py-2  ml-4 lg:w-[200px]   md:w-[120px]">Filtrer</button>
     `;
 
     const filterBtn = document.querySelector('#filterBtn');
@@ -257,7 +257,7 @@ async function getSelect() {
       const genre = document.querySelector('#genre').value;
       const plateforme = document.querySelector('#plateforme').value;
       const notes = document.querySelector('#note').value;
-      
+
       const filteredGames = await getjeuxfilter({ genre, plateforme, notes });
       AfficherGames(filteredGames);
     });
@@ -276,10 +276,10 @@ function AfficherGames(games) {
       <div class="card-text pl-2 bg-red-600 flex flex-col justify-between text-white rounded-b-lg h-[100px]">
         <div class="img-platform flex">
           ${game.parent_platforms.map((p) => {
-            const slug = p.platform.slug; 
-            const icon = platformIcons[slug];
-            return icon ? `<img src="${icon}" alt="${slug}" class="w-[20px] inline-block mx-1">` : "";
-          }).join("")}
+    const slug = p.platform.slug;
+    const icon = platformIcons[slug];
+    return icon ? `<img src="${icon}" alt="${slug}" class="w-[20px] inline-block mx-1">` : "";
+  }).join("")}
         </div>
         <div class="namecoeur mb-[10px] flex justify-between gap-4">
           <h2 class="name text-white font-bold truncate">${game.name}</h2><br>
@@ -297,7 +297,7 @@ function AfficherGames(games) {
 async function getcard() {
   try {
     AfficherGames(gamesData);
-    
+
     // Gestion de la recherche
     searchInput.addEventListener("input", e => {
       const value = e.target.value.toLowerCase();
