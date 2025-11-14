@@ -1,44 +1,81 @@
 <!doctype html>
-<html >
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../src/output.css" rel="stylesheet" />
+<html>
 
-    <script src="file.js" defer></script>
-    <!-- <link rel="stylesheet" href="styel.css"> -->
-     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
-    
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../src/output.css" rel="stylesheet" />
+
+  <script src="file.js" defer></script>
+  <!-- <link rel="stylesheet" href="styel.css"> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+
+</head>
+
 <body style="background-image: url('./IMG/bg.jpg')" class="min-h-screen bg-cover bg-center bg-no-repeat">
 
 
 
 
-    <header  class=" flex flex-row   ">
-      <img src="IMG/logo (1).png" class="w-8 m-px"  alt="logo" srcset="">
-      <input  type="search"  class="border-2 border-red-500 ml-3 w-72 h-10 rounded-2xl bg-amber-50 block"/>
+  <header class=" flex flex-row   justify-center  md:grid-cols-3 lg: grid-cols-3 ">
+    <img src="IMG/logo (1).png" class="w-8 m-px md:w-[40px]   lg:w-[150px] lg:mb-90  " alt="logo" srcset="">
+    <input type="search" class=" border-2  md:w-[400px]   lg:w-[800px] mt-16 border-red-500 ml-3 w-72 h-10 rounded-2xl bg-amber-50 block" />
 
-      <button class="text-amber-50  ml-3  text-center rounded-3xl border border-red-500 w-32 h-9"><img class="w-7  pt-2 pl-2" src="IMG/comme.png"><span class="w-8 relative bottom-6 left-2">Favoris</span></button>      
-            
-    </header>
+    <button class="text-amber-50  ml-3   md:w-[100px]   lg:w-[200px]  mt-16 text-center rounded-3xl border border-red-500 w-32 h-9"><img
+        class="w-7  pt-2 pl-2" src="IMG/comme.png"><a href="favoris.html" class="w-8 relative bottom-6 left-2" >Favoris</a></button>
+
+  </header>
+  
+  <main class=" lg:flex  flex-col">
     
-    <main>
-      <section class="imggame">
-        <img src="IMG/Gamme.png" class="w-60 relative left-20 ">
-      </section>
-      <section class="filter  flex flex-row">
-        <button class="text-white ml-6 text-center w-[150px] rounded-sm border border-red-500 p-2" >Filter</button>
-      </section>
-      <h1 class="text-white font-bold text-center ">Games</h1>
-      <section class="cards">
+    <section class="imggame   flex justify-center">
+      <img src="IMG/Gamme.png" class="w-60 relative    md:w-[300px]    lg:w-[400px]   ">
+    </section>
+    <section class="filter  flex flex-row  justify-center  md:gap-[89px] lg:gap-[100px]">
+      <button id="filter" class="text-white ml-6 text-center w-[150px] rounded-sm border border-red-500 p-2">Filter</button>
+    </section>
+    <h1 class="text-white font-bold text-center text-[50px] lg:text-[100px] md:text-[70px] ">Games</h1>
+    <section class="cards md:grid md:grid-cols-2 lg:grid-cols-4">
 
-      </section>
-      <section class="pagination">
-      </section>
-    </main>
-    <footer>
-      
-    </footer>
-  </body>
+    </section>
+    <section class="grid grid-flow-col gap-4 justify-center mt-10">
+  <button class="previous w-[90px] h-10 md:[150px] lg:[200px] text-white bg-red-600">Precedente</button>
+  <button class="next h-10 w-[90px]   md:[150px] lg:[200px] text-white bg-red-600">Suivante</button>
+</section>
+  </main>
+   <footer class="bg-black py-6 px-8 mt-auto w-full">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-4 md:gap-6 lg:gap-8 max-w-[480px] sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] mx-auto">
+               
+                <!-- Logo -->
+                <div class="flex flex-col items-center">
+                    <img src="IMG/logo (1).png" alt="Logo" class="w-12 h-12 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-2" onerror="this.style.display='none'">
+                    <span class="text-xs sm:text-sm md:text-sm">Logo</span>
+                </div>
+
+                <!-- Navigation -->
+   <div class="flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
+     <div class="flex items-center  md:gap-8 lg:gap-10">
+    <a href="home.html" class="text-sm inline-block ml-[100px] sm:text-sm md:text-base lg:text-lg text-white hover:text-red-500 transition-colors">Accueil</a>
+    <a href="favoris.html" class="text-sm sm:text-sm md:text-base lg:text-lg text-white hover:text-red-500 transition-colors">Favoris</a>
+  </div>
+  <!-- Copyright au-dessus -->
+  <p class="text-sm sm:text-sm md:text-base lg:text-lg text-white">@copyright 2026</p>
+
+  <!-- Liens -->
+ 
+</div>
+
+                <!-- Social -->
+                <div class="flex items-center gap-4 sm:gap-3 md:gap-4 lg:gap-5">
+                    <a href="#" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition-colors">
+                        <img src="IMG/image-removebg-preview (1) 1.png" alt="Upload" class="w-6 h-6 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" onerror="this.innerHTML='📤'">
+                    </a>
+                    <a href="favoris.html" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition-colors">
+                        <img src="IMG/image-removebg-preview 1 (1).png" alt="Instagram" class="w-6 h-6 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" onerror="this.innerHTML='📷'">
+                    </a>
+                </div>
+            </div>
+        </footer>
+</body>
+
 </html>
