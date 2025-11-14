@@ -9,23 +9,13 @@ const platformIcons = {
   mac: "IMG/mac.png",
   linux: "IMG/linux.png"
 };
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 let url = "https://debuggers-games-api.duckdns.org/api/games";
 let gamesData = [];
 let nextUrl = null;
 let prevUrl = null;
 
-// Fonction pour afficher le loading
-// function showLoading() {
-//   Cards.innerHTML = `
-//     <div class="flex items-center justify-center min-h-[500px] w-full col-span-full">
-//       <div class="text-center">
-//         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto mb-4"></div>
-//         <p class="text-gray-300 text-base">Chargement...</p>
-//       </div>
-//     </div>
-//   `;
-// }
 
 function showLoading() {
   Cards.innerHTML = `
@@ -81,6 +71,13 @@ async function loadInitialData() {
     `;
   }
 }
+
+
+
+
+
+
+
 
 async function getjeuxfilter({ genre, plateforme, notes }) {
   try {
@@ -185,7 +182,7 @@ function AfficherGames(games) {
         <div class="namecoeur mb-[10px] flex justify-between gap-4">
           <h2 class="name text-white font-bold truncate">${game.name}</h2>
           <h2 class="name text-white font-bold truncate">${game.rating}</h2>
-          <img class="w-[20px] mr-5" src="IMG/comme.png">
+          <img class="imgcoeur w-[20px] mr-5" data-gameid="${game.id}" src="IMG/comme (1).png">
         </div>
       </div>
     </div>

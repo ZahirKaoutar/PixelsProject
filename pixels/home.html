@@ -22,7 +22,7 @@
     <input type="search" class=" border-2  md:w-[400px]   lg:w-[800px] mt-16 border-red-500 ml-3 w-72 h-10 rounded-2xl bg-amber-50 block" />
 
     <button class="text-amber-50  ml-3   md:w-[100px]   lg:w-[200px]  mt-16 text-center rounded-3xl border border-red-500 w-32 h-9"><img
-        class="w-7  pt-2 pl-2" src="IMG/comme.png"><span class="w-8 relative bottom-6 left-2">Favoris</span></button>
+        class="w-7  pt-2 pl-2" src="IMG/comme.png"><a href="favoris.html" class="w-8 relative bottom-6 left-2" >Favoris</a></button>
 
   </header>
   
@@ -43,33 +43,39 @@
   <button class="next h-10 w-[90px]   md:[150px] lg:[200px] text-white bg-red-600">Suivante</button>
 </section>
   </main>
- <footer class="bg-black py-6 px-8 mt-auto">
-            <div class="flex justify-between items-end md:justify-around lg:max-w-4xl lg:mx-auto">
+   <footer class="bg-black py-6 px-8 mt-auto w-full">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-4 md:gap-6 lg:gap-8 max-w-[480px] sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] mx-auto">
                
+                <!-- Logo -->
                 <div class="flex flex-col items-center">
-                    <img src="IMG/logo (1).png" alt="Logo" class="w-12 h-12 md:w-16 md:h-16 mb-2" onerror="this.style.display='none'">
-                    <span class="text-xs md:text-sm">Logo</span>
+                    <img src="IMG/logo (1).png" alt="Logo" class="w-12 h-12 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-2" onerror="this.style.display='none'">
+                    <span class="text-xs sm:text-sm md:text-sm">Logo</span>
                 </div>
 
-                
-                
-                
-                <div class="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-8">
-                    <a href="home.html" class="text-sm md:text-base hover:text-red-500 transition">Acceuil</a>
-                    <a href="favoris.html" class="text-sm md:text-base hover:text-red-500 transition">Favoris</a>
-                </div>
+                <!-- Navigation -->
+   <div class="flex flex-col items-center gap-4 md:gap-6 lg:gap-8">
+     <div class="flex items-center  md:gap-8 lg:gap-10">
+    <a href="home.html" class="text-sm inline-block ml-[100px] sm:text-sm md:text-base lg:text-lg text-white hover:text-red-500 transition-colors">Accueil</a>
+    <a href="favoris.html" class="text-sm sm:text-sm md:text-base lg:text-lg text-white hover:text-red-500 transition-colors">Favoris</a>
+  </div>
+  <!-- Copyright au-dessus -->
+  <p class="text-sm sm:text-sm md:text-base lg:text-lg text-white">@copyright 2026</p>
 
-                
-                <div class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4">
-                    <a href="#" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition">
-                        <img src="IMG/image-removebg-preview (1) 1.png" alt="Upload" class="w-6 h-6 md:w-8 md:h-8" onerror="this.innerHTML='📤'">
+  <!-- Liens -->
+ 
+</div>
+
+                <!-- Social -->
+                <div class="flex items-center gap-4 sm:gap-3 md:gap-4 lg:gap-5">
+                    <a href="#" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition-colors">
+                        <img src="IMG/image-removebg-preview (1) 1.png" alt="Upload" class="w-6 h-6 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" onerror="this.innerHTML='📤'">
                     </a>
-                    <a href="favoris.html" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition">
-                        <img src="IMG/image-removebg-preview 1 (1).png" alt="Instagram" class="w-6 h-6 md:w-8 md:h-8" onerror="this.innerHTML='📷'">
+                    <a href="favoris.html" class="text-red-500 rounded p-2 hover:bg-red-500/20 transition-colors">
+                        <img src="IMG/image-removebg-preview 1 (1).png" alt="Instagram" class="w-6 h-6 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" onerror="this.innerHTML='📷'">
                     </a>
                 </div>
             </div>
-        </footer> 
+        </footer>
 </body>
 
 </html>
