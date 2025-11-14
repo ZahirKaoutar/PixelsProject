@@ -33,7 +33,7 @@
         <img src="IMG/Gamme.png" class="w-60 relative left-20 ">
       </section>
       <section class="filter  flex flex-row">
-        <button class="text-white ml-6 text-center w-[150px] rounded-sm border border-red-500 p-2" >Filter</button>
+        <button  id ="filter" class="text-white ml-6 text-center w-[150px] rounded-sm border border-red-500 p-2" >Filter</button>
       </section>
       <h1 class="text-white font-bold text-center ">Games</h1>
       <section class="cards">
@@ -42,8 +42,31 @@
       <section class="pagination">
       </section>
     </main>
-    <footer>
-      
-    </footer>
+    <footer class="bg-black py-6 px-8 mt-auto">
+            <div class="flex justify-between items-end">
+               
+                <div class="flex flex-col items-center">
+                    <img src="IMG/logo (1).png" alt="Logo" class="w-12 h-12 mb-2" onerror="this.style.display='none'">
+                    <span class="text-xs">Logo</span>
+                </div>
+
+                
+                <div class="flex flex-col items-center space-y-4">
+                    <a href="home.html" class="text-sm text-white hover:text-red-500 transition">Acceuil</a>
+                    <a href="favoris.html" class="text-sm  text-white hover:text-red-500 transition">Favoris</a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex flex-col items-center space-y-2">
+                    <a href="#" class="text-red-500  rounded p-2">
+                        <img src="IMG/image-removebg-preview (1) 1.png" alt="Upload" class="w-6 h-6" onerror="this.innerHTML='📤'">
+                    </a>
+                    <a href="favoris.html" class="text-red-500  rounded p-2">
+                        <img src="IMG/image-removebg-preview 1 (1).png" alt="Instagram" class="w-6 h-6" onerror="this.innerHTML='📷'">
+                    </a>
+                    
+                </div>
+            </div>
+        </footer>
   </body>
 </html>
