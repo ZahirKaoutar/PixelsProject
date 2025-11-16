@@ -9,14 +9,14 @@ const platformIcons = {
   mac: "IMG/mac.png",
   linux: "IMG/linux.png"
 };
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
 
 let url = "https://debuggers-games-api.duckdns.org/api/games";
 let gamesData = [];
 let nextUrl = null;
 let prevUrl = null;
 
-
+//function permet de faire l'effet de chargement api
 function showLoading() {
   Cards.innerHTML = `
     <div class="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
@@ -265,7 +265,7 @@ async function getcard() {
         }
       });
 
-      // Si aucune carte visible après la recherche
+      // Si aucune carte trouver après la recherche
       if (visibleCount === 0 && value !== "") {
         const existingNoResult = document.querySelector('.no-result-message');
         if (!existingNoResult) {
